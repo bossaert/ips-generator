@@ -1,0 +1,58 @@
+Field_ID,Field_Name,Category,Data_Type,Required,Description,Example_Value,Validation_Rules,Source_System
+CP_001,clientName,Client Profile,String,Yes,Full legal name of the client,John D. Smith,Max 100 characters,CRM
+CP_002,dateOfBirth,Client Profile,Date,Yes,Client birth date for age calculation,1975-03-15,"Valid date, age 18-120",CRM
+CP_003,currentAge,Client Profile,Integer,Yes,Current age of client,48,Calculated from DOB,CRM
+CP_004,maritalStatus,Client Profile,Enum,Yes,Marital status,Married,Single|Married|Divorced|Widowed,CRM
+CP_005,numberOfDependents,Client Profile,Integer,No,Number of dependents,2,0-20,CRM
+CP_006,employmentStatus,Client Profile,Enum,Yes,Current employment status,Employed,Employed|Self-Employed|Retired|Unemployed,CRM
+CP_007,occupation,Client Profile,String,No,Client occupation or profession,Senior Software Engineer,Max 100 characters,CRM
+CP_008,annualIncome,Client Profile,Decimal,Yes,Gross annual income,125000.00,Positive number,CRM
+CP_009,netWorth,Client Profile,Decimal,Yes,Total net worth,850000.00,Can be negative,CRM
+CP_010,liquidNetWorth,Client Profile,Decimal,Yes,Liquid assets minus liabilities,450000.00,Can be negative,CRM
+RT_001,riskToleranceScore,Risk Tolerance,Integer,Yes,Risk tolerance questionnaire score,65,0-100,Risk Assessment
+RT_002,riskToleranceLevel,Risk Tolerance,Enum,Yes,Risk tolerance category,Moderate,Conservative|Mod. Conservative|Moderate|Mod. Aggressive|Aggressive,Risk Assessment
+RT_003,riskCapacity,Risk Tolerance,Enum,Yes,Financial capacity for risk,High,Low|Medium|High,Risk Assessment
+RT_004,lossTolerancePercentage,Risk Tolerance,Decimal,Yes,Maximum acceptable loss percentage,20.0,1.0-50.0,Risk Assessment
+RT_005,volatilityComfort,Risk Tolerance,Integer,Yes,Comfort with volatility (1-10 scale),7,1-10,Risk Assessment
+RT_006,experienceLevel,Risk Tolerance,Enum,Yes,Investment experience level,Intermediate,Beginner|Intermediate|Advanced|Expert,Risk Assessment
+IO_001,primaryGoal,Investment Objectives,Enum,Yes,Primary investment goal,Retirement,Retirement|Education|Home Purchase|Wealth Building|Income|Other,Planning
+IO_002,investmentHorizonYears,Investment Objectives,Integer,Yes,Investment time horizon in years,20,1-50,Planning
+IO_003,targetAnnualReturn,Investment Objectives,Decimal,Yes,Target annual return percentage,7.5,1.0-20.0,Planning
+IO_004,targetValue,Investment Objectives,Decimal,No,Target portfolio value at goal date,2000000.00,Positive number,Planning
+IO_005,liquidityNeeds,Investment Objectives,Enum,Yes,Liquidity requirements,Medium,Low|Medium|High,Planning
+IO_006,incomeRequirement,Investment Objectives,Decimal,No,Required annual income from portfolio,40000.00,Positive number or 0,Planning
+IO_007,inflationProtection,Investment Objectives,Boolean,Yes,Desire for inflation protection,True,True|False,Planning
+IO_008,taxConsiderations,Investment Objectives,Boolean,Yes,Tax-efficiency priority,True,True|False,Planning
+AA_001,domesticEquityTarget,Asset Allocation,Decimal,Yes,Target domestic equity allocation %,50.0,0.0-100.0,Portfolio Model
+AA_002,internationalEquityTarget,Asset Allocation,Decimal,Yes,Target international equity allocation %,20.0,0.0-100.0,Portfolio Model
+AA_003,fixedIncomeTarget,Asset Allocation,Decimal,Yes,Target fixed income allocation %,25.0,0.0-100.0,Portfolio Model
+AA_004,cashTarget,Asset Allocation,Decimal,Yes,Target cash allocation %,3.0,0.0-25.0,Portfolio Model
+AA_005,alternativesTarget,Asset Allocation,Decimal,No,Target alternatives allocation %,2.0,0.0-25.0,Portfolio Model
+AA_006,rebalancingThreshold,Asset Allocation,Decimal,Yes,Rebalancing threshold percentage,5.0,1.0-25.0,Portfolio Model
+AA_007,rebalancingFrequency,Asset Allocation,Enum,Yes,Rebalancing frequency,Quarterly,Monthly|Quarterly|Semi-Annual|Annual,Portfolio Model
+PH_001,accountNumber,Portfolio Holdings,String,Yes,Account identifier,ACC-12345678,Max 20 characters,Custodian
+PH_002,accountType,Portfolio Holdings,Enum,Yes,Type of account,Taxable,Taxable|IRA|Roth IRA|401k|403b|Other,Custodian
+PH_003,holdingName,Portfolio Holdings,String,Yes,Investment name,Vanguard Total Stock Market ETF,Max 100 characters,Custodian
+PH_004,ticker,Portfolio Holdings,String,Yes,Security ticker symbol,VTI,Max 10 characters,Custodian
+PH_005,assetClass,Portfolio Holdings,Enum,Yes,Asset class category,Domestic Equity,Domestic Equity|International Equity|Fixed Income|Cash|Alternatives|Other,Portfolio Management
+PH_006,currentShares,Portfolio Holdings,Decimal,Yes,Number of shares held,150.5,Positive number,Custodian
+PH_007,currentPrice,Portfolio Holdings,Decimal,Yes,Current price per share,245.67,Positive number,Market Data
+PH_008,currentValue,Portfolio Holdings,Decimal,Yes,Current market value of holding,36973.34,Calculated: shares * price,Portfolio Management
+PH_009,costBasis,Portfolio Holdings,Decimal,No,Original cost basis,32500.00,Positive number,Custodian
+PH_010,currentAllocationPercentage,Portfolio Holdings,Decimal,Yes,Current % of total portfolio,8.5,Calculated from total portfolio,Portfolio Management
+PM_001,benchmarkIndex,Performance Monitoring,String,Yes,Primary benchmark index,S&P 500,Max 50 characters,Portfolio Management
+PM_002,reviewFrequency,Performance Monitoring,Enum,Yes,Portfolio review frequency,Quarterly,Monthly|Quarterly|Semi-Annual|Annual,Advisory
+PM_003,reportingFrequency,Performance Monitoring,Enum,Yes,Performance reporting frequency,Quarterly,Monthly|Quarterly|Semi-Annual|Annual,Advisory
+PM_004,performanceToleranceRange,Performance Monitoring,Decimal,Yes,Acceptable performance deviation %,3.0,1.0-10.0,Portfolio Management
+PM_005,riskMetricTracking,Performance Monitoring,String,Yes,Risk metrics to monitor,"Standard Deviation,Sharpe Ratio,Maximum Drawdown",Standard list of metrics,Portfolio Management
+RE_001,esgPreferences,Restrictions,Boolean,No,ESG investment preference,False,True|False,CRM
+RE_002,excludedSectors,Restrictions,String,No,Excluded investment sectors,"Tobacco,Gambling",Comma-separated list,CRM
+RE_003,concentrationLimit,Restrictions,Decimal,Yes,Maximum single holding percentage,10.0,1.0-25.0,Compliance
+RE_004,minimumCreditRating,Restrictions,Enum,No,Minimum bond credit rating,BBB-,AAA|AA|A|BBB|BB|B|CCC|D,Compliance
+RE_005,derivativesAllowed,Restrictions,Boolean,Yes,Allow derivatives usage,False,True|False,Compliance
+AL_001,advisorName,Advisory,String,Yes,Primary advisor name,"Jane Smith, CFP",Max 100 characters,CRM
+AL_002,advisorFirm,Advisory,String,Yes,Advisory firm name,ABC Wealth Management,Max 100 characters,CRM
+AL_003,custodianName,Advisory,String,Yes,Custodial institution,Charles Schwab,Max 100 characters,CRM
+AL_004,fiduciaryStatus,Advisory,Boolean,Yes,Fiduciary relationship indicator,True,True|False,Compliance
+AL_005,ipsCreationDate,Advisory,Date,Yes,IPS document creation date,2024-01-15,Valid date,System
+AL_006,nextReviewDate,Advisory,Date,Yes,Next scheduled IPS review date,2025-01-15,Valid future date,System

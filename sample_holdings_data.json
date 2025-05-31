@@ -1,0 +1,74 @@
+[
+  {
+    "accountNumber": "FID-7891234",
+    "accountType": "Taxable",
+    "holdingName": "Vanguard Total Stock Market ETF",
+    "ticker": "VTI",
+    "assetClass": "Domestic Equity",
+    "currentShares": 425.0,
+    "currentPrice": 245.67,
+    "currentValue": 104409.75,
+    "costBasis": 98500.0,
+    "currentAllocationPercentage": 15.5
+  },
+  {
+    "accountNumber": "FID-7891234",
+    "accountType": "Taxable",
+    "holdingName": "Vanguard FTSE Developed Markets ETF",
+    "ticker": "VEA",
+    "assetClass": "International Equity",
+    "currentShares": 1250.0,
+    "currentPrice": 48.23,
+    "currentValue": 60287.5,
+    "costBasis": 58750.0,
+    "currentAllocationPercentage": 9.0
+  },
+  {
+    "accountNumber": "FID-7891234",
+    "accountType": "Taxable",
+    "holdingName": "Vanguard Total Bond Market ETF",
+    "ticker": "BND",
+    "assetClass": "Fixed Income",
+    "currentShares": 750.0,
+    "currentPrice": 78.45,
+    "currentValue": 58837.5,
+    "costBasis": 62250.0,
+    "currentAllocationPercentage": 8.7
+  },
+  {
+    "accountNumber": "FID-78912345",
+    "accountType": "IRA",
+    "holdingName": "Fidelity 500 Index Fund",
+    "ticker": "FXAIX",
+    "assetClass": "Domestic Equity",
+    "currentShares": 2150.0,
+    "currentPrice": 156.78,
+    "currentValue": 337077.0,
+    "costBasis": 315000.0,
+    "currentAllocationPercentage": 50.0
+  },
+  {
+    "accountNumber": "FID-78912345",
+    "accountType": "IRA",
+    "holdingName": "Vanguard Emerging Markets ETF",
+    "ticker": "VWO",
+    "assetClass": "International Equity",
+    "currentShares": 2250.0,
+    "currentPrice": 41.32,
+    "currentValue": 92970.0,
+    "costBasis": 95000.0,
+    "currentAllocationPercentage": 13.8
+  },
+  {
+    "accountNumber": "FID-78912345",
+    "accountType": "IRA",
+    "holdingName": "Federal Money Market Fund",
+    "ticker": "SPAXX",
+    "assetClass": "Cash",
+    "currentShares": 20250.0,
+    "currentPrice": 1.0,
+    "currentValue": 20250.0,
+    "costBasis": 20250.0,
+    "currentAllocationPercentage": 3.0
+  }
+]

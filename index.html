@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPS Generator - Investment Policy Statement Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-section">
+                        <h1 class="app-title">IPS Generator</h1>
+                        <p class="app-subtitle">Investment Policy Statement Tool</p>
+                    </div>
+                    <div class="advisor-info">
+                        <span class="advisor-name">Robert Chen, CFP®, CFA</span>
+                        <span class="firm-name">Summit Wealth Advisors</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <div class="container">
+                <div class="tab-list" role="tablist">
+                    <button class="tab-button active" data-tab="dashboard" role="tab" aria-selected="true">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                        </svg>
+                        Client Dashboard
+                    </button>
+                    <button class="tab-button" data-tab="parameters" role="tab" aria-selected="false">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 10v6m11-7h-6m-10 0H1m15.5-6.5l-3.5 3.5L10.5 9l3.5-3.5M9 21l3.5-3.5L16 21l-3.5 3.5"></path>
+                        </svg>
+                        IPS Parameters
+                    </button>
+                    <button class="tab-button" data-tab="allocation" role="tab" aria-selected="false">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2v10l7.07 7.07"></path>
+                        </svg>
+                        Asset Allocation
+                    </button>
+                    <button class="tab-button" data-tab="rebalancing" role="tab" aria-selected="false">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 12h18m-9-9l9 9-9 9"></path>
+                        </svg>
+                        Rebalancing
+                    </button>
+                    <button class="tab-button" data-tab="document" role="tab" aria-selected="false">
+                        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                        </svg>
+                        Document Preview
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Client Dashboard Tab -->
+                <div id="dashboard" class="tab-content active">
+                    <div class="dashboard-grid">
+                        <div class="client-overview card">
+                            <div class="card__header">
+                                <h2>Client Overview</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="client-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Client Name:</span>
+                                        <span class="detail-value" id="clientName">Michael and Sarah Johnson</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Age:</span>
+                                        <span class="detail-value" id="clientAge">46</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Marital Status:</span>
+                                        <span class="detail-value" id="maritalStatus">Married</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Annual Income:</span>
+                                        <span class="detail-value" id="annualIncome">$185,000</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Net Worth:</span>
+                                        <span class="detail-value" id="netWorth">$1,250,000</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Investment Horizon:</span>
+                                        <span class="detail-value" id="investmentHorizon">19 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="risk-profile card">
+                            <div class="card__header">
+                                <h2>Risk Profile</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="risk-meter">
+                                    <div class="risk-score" id="riskScore">72</div>
+                                    <div class="risk-label" id="riskLabel">Moderately Aggressive</div>
+                                    <div class="risk-bar">
+                                        <div class="risk-fill" style="width: 72%"></div>
+                                    </div>
+                                </div>
+                                <div class="risk-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Risk Capacity:</span>
+                                        <span class="detail-value">High</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Loss Tolerance:</span>
+                                        <span class="detail-value">25%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-summary card">
+                            <div class="card__header">
+                                <h2>Portfolio Summary</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="portfolio-value">
+                                    <span class="value-label">Total Portfolio Value</span>
+                                    <span class="value-amount" id="portfolioValue">$673,831</span>
+                                </div>
+                                <div class="allocation-summary">
+                                    <div class="allocation-item">
+                                        <span class="allocation-label">Domestic Equity</span>
+                                        <span class="allocation-percentage">65.5%</span>
+                                    </div>
+                                    <div class="allocation-item">
+                                        <span class="allocation-label">International Equity</span>
+                                        <span class="allocation-percentage">22.8%</span>
+                                    </div>
+                                    <div class="allocation-item">
+                                        <span class="allocation-label">Fixed Income</span>
+                                        <span class="allocation-percentage">8.7%</span>
+                                    </div>
+                                    <div class="allocation-item">
+                                        <span class="allocation-label">Cash</span>
+                                        <span class="allocation-percentage">3.0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="objectives card">
+                            <div class="card__header">
+                                <h2>Investment Objectives</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="objective-item">
+                                    <span class="objective-label">Primary Goal:</span>
+                                    <span class="objective-value">Retirement</span>
+                                </div>
+                                <div class="objective-item">
+                                    <span class="objective-label">Target Annual Return:</span>
+                                    <span class="objective-value">8.2%</span>
+                                </div>
+                                <div class="objective-item">
+                                    <span class="objective-label">Target Retirement Value:</span>
+                                    <span class="objective-value">$3,500,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPS Parameters Tab -->
+                <div id="parameters" class="tab-content">
+                    <div class="parameters-grid">
+                        <div class="investment-objectives card">
+                            <div class="card__header">
+                                <h2>Investment Objectives</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="form-group">
+                                    <label class="form-label" for="primaryGoal">Primary Investment Goal</label>
+                                    <select id="primaryGoal" class="form-control">
+                                        <option value="Retirement" selected>Retirement</option>
+                                        <option value="Education">Education Funding</option>
+                                        <option value="Growth">Wealth Accumulation</option>
+                                        <option value="Income">Income Generation</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="targetReturn">Target Annual Return (%)</label>
+                                    <input type="number" id="targetReturn" class="form-control" value="8.2" step="0.1" min="1" max="20">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="timeHorizon">Investment Time Horizon (Years)</label>
+                                    <input type="number" id="timeHorizon" class="form-control" value="19" min="1" max="50">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="asset-allocation-targets card">
+                            <div class="card__header">
+                                <h2>Asset Allocation Targets</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="allocation-inputs">
+                                    <div class="form-group">
+                                        <label class="form-label" for="domesticEquityTarget">Domestic Equity (%)</label>
+                                        <input type="number" id="domesticEquityTarget" class="form-control allocation-input" value="55" min="0" max="100">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="internationalEquityTarget">International Equity (%)</label>
+                                        <input type="number" id="internationalEquityTarget" class="form-control allocation-input" value="25" min="0" max="100">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="fixedIncomeTarget">Fixed Income (%)</label>
+                                        <input type="number" id="fixedIncomeTarget" class="form-control allocation-input" value="15" min="0" max="100">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="cashTarget">Cash (%)</label>
+                                        <input type="number" id="cashTarget" class="form-control allocation-input" value="3" min="0" max="100">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="alternativesTarget">Alternatives (%)</label>
+                                        <input type="number" id="alternativesTarget" class="form-control allocation-input" value="2" min="0" max="100">
+                                    </div>
+                                </div>
+                                <div class="allocation-total">
+                                    Total: <span id="allocationTotal">100</span>%
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rebalancing-settings card">
+                            <div class="card__header">
+                                <h2>Rebalancing & Monitoring</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="form-group">
+                                    <label class="form-label" for="rebalancingFrequency">Rebalancing Frequency</label>
+                                    <select id="rebalancingFrequency" class="form-control">
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Quarterly" selected>Quarterly</option>
+                                        <option value="Semi-Annually">Semi-Annually</option>
+                                        <option value="Annually">Annually</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="rebalancingThreshold">Rebalancing Threshold (%)</label>
+                                    <input type="number" id="rebalancingThreshold" class="form-control" value="5" step="0.5" min="1" max="20">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="reviewFrequency">Portfolio Review Frequency</label>
+                                    <select id="reviewFrequency" class="form-control">
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Quarterly" selected>Quarterly</option>
+                                        <option value="Semi-Annually">Semi-Annually</option>
+                                        <option value="Annually">Annually</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="investment-restrictions card">
+                            <div class="card__header">
+                                <h2>Investment Restrictions</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" id="esgPreferences" checked>
+                                        ESG Investment Preferences
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="excludedSectors">Excluded Sectors</label>
+                                    <input type="text" id="excludedSectors" class="form-control" value="Tobacco, Firearms" placeholder="Enter excluded sectors">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="concentrationLimit">Single Position Concentration Limit (%)</label>
+                                    <input type="number" id="concentrationLimit" class="form-control" value="8" min="1" max="50">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <input type="checkbox" id="derivativesAllowed">
+                                        Allow Derivatives Usage
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asset Allocation Tab -->
+                <div id="allocation" class="tab-content">
+                    <div class="allocation-grid">
+                        <div class="allocation-chart card">
+                            <div class="card__header">
+                                <h2>Current vs Target Allocation</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="chart-container">
+                                    <canvas id="allocationChart" width="400" height="400"></canvas>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: #2962FF;"></span>
+                                        <span class="legend-label">Domestic Equity</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: #1565C0;"></span>
+                                        <span class="legend-label">International Equity</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: #42A5F5;"></span>
+                                        <span class="legend-label">Fixed Income</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: #90CAF9;"></span>
+                                        <span class="legend-label">Cash</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: #E3F2FD;"></span>
+                                        <span class="legend-label">Alternatives</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="allocation-details card">
+                            <div class="card__header">
+                                <h2>Allocation Breakdown</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="allocation-table">
+                                    <div class="table-header">
+                                        <span>Asset Class</span>
+                                        <span>Current</span>
+                                        <span>Target</span>
+                                        <span>Variance</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Domestic Equity</span>
+                                        <span id="currentDomestic">65.5%</span>
+                                        <span id="targetDomestic">55.0%</span>
+                                        <span id="varianceDomestic" class="variance-positive">+10.5%</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>International Equity</span>
+                                        <span id="currentInternational">22.8%</span>
+                                        <span id="targetInternational">25.0%</span>
+                                        <span id="varianceInternational" class="variance-negative">-2.2%</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Fixed Income</span>
+                                        <span id="currentFixed">8.7%</span>
+                                        <span id="targetFixed">15.0%</span>
+                                        <span id="varianceFixed" class="variance-negative">-6.3%</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Cash</span>
+                                        <span id="currentCash">3.0%</span>
+                                        <span id="targetCash">3.0%</span>
+                                        <span id="varianceCash" class="variance-neutral">0.0%</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Alternatives</span>
+                                        <span id="currentAlternatives">0.0%</span>
+                                        <span id="targetAlternatives">2.0%</span>
+                                        <span id="varianceAlternatives" class="variance-negative">-2.0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rebalancing Tab -->
+                <div id="rebalancing" class="tab-content">
+                    <div class="rebalancing-grid">
+                        <div class="rebalancing-recommendations card">
+                            <div class="card__header">
+                                <h2>Rebalancing Recommendations</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="recommendation-list">
+                                    <div class="recommendation-item sell">
+                                        <div class="recommendation-header">
+                                            <span class="action-type">SELL</span>
+                                            <span class="asset-name">Domestic Equity</span>
+                                        </div>
+                                        <div class="recommendation-details">
+                                            <span class="amount">$70,752</span>
+                                            <span class="description">Reduce overweight position by 10.5%</span>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-item buy">
+                                        <div class="recommendation-header">
+                                            <span class="action-type">BUY</span>
+                                            <span class="asset-name">Fixed Income</span>
+                                        </div>
+                                        <div class="recommendation-details">
+                                            <span class="amount">$42,451</span>
+                                            <span class="description">Increase allocation to target 15.0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-item buy">
+                                        <div class="recommendation-header">
+                                            <span class="action-type">BUY</span>
+                                            <span class="asset-name">International Equity</span>
+                                        </div>
+                                        <div class="recommendation-details">
+                                            <span class="amount">$14,824</span>
+                                            <span class="description">Increase allocation to target 25.0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-item buy">
+                                        <div class="recommendation-header">
+                                            <span class="action-type">BUY</span>
+                                            <span class="asset-name">Alternatives</span>
+                                        </div>
+                                        <div class="recommendation-details">
+                                            <span class="amount">$13,477</span>
+                                            <span class="description">Add alternatives allocation per target 2.0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tax-implications card">
+                            <div class="card__header">
+                                <h2>Tax Efficiency Considerations</h2>
+                            </div>
+                            <div class="card__body">
+                                <div class="tax-item">
+                                    <span class="tax-label">Tax-Loss Harvesting Opportunities:</span>
+                                    <span class="tax-value">Available in VEA position</span>
+                                </div>
+                                <div class="tax-item">
+                                    <span class="tax-label">Estimated Tax Impact:</span>
+                                    <span class="tax-value">$1,245 in capital gains</span>
+                                </div>
+                                <div class="tax-item">
+                                    <span class="tax-label">Recommended Account Priority:</span>
+                                    <span class="tax-value">Execute rebalancing in IRA first</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Preview Tab -->
+                <div id="document" class="tab-content">
+                    <div class="document-container">
+                        <div class="document-actions">
+                            <button class="btn btn--primary" onclick="window.print()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <polyline points="6,9 6,2 18,2 18,9"></polyline>
+                                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                                    <rect x="6" y="14" width="12" height="8"></rect>
+                                </svg>
+                                Print IPS
+                            </button>
+                            <button class="btn btn--secondary" id="downloadBtn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7,10 12,15 17,10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download PDF
+                            </button>
+                        </div>
+
+                        <div class="document-preview" id="documentPreview">
+                            <div class="document-header">
+                                <h1>INVESTMENT POLICY STATEMENT</h1>
+                                <div class="document-info">
+                                    <div class="info-row">
+                                        <span>Client: <strong id="docClientName">Michael and Sarah Johnson</strong></span>
+                                        <span>Date: <strong id="docDate">May 30, 2024</strong></span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Advisor: <strong>Robert Chen, CFP®, CFA</strong></span>
+                                        <span>Next Review: <strong>November 30, 2024</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>I. INVESTMENT OBJECTIVES</h2>
+                                <p>The primary investment objective is <strong id="docPrimaryGoal">retirement planning</strong> with a long-term investment horizon of <strong id="docTimeHorizon">19 years</strong>. The portfolio aims to achieve a target annual return of <strong id="docTargetReturn">8.2%</strong> while maintaining appropriate risk controls consistent with the client's risk tolerance profile.</p>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>II. RISK TOLERANCE AND PARAMETERS</h2>
+                                <p>The client has been assessed with a <strong>Moderately Aggressive</strong> risk tolerance with a risk score of <strong>72/100</strong>. The client can tolerate potential losses of up to <strong>25%</strong> during adverse market conditions. This risk profile supports a growth-oriented investment approach with measured exposure to volatility.</p>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>III. ASSET ALLOCATION TARGETS</h2>
+                                <div class="allocation-targets">
+                                    <div class="target-item">
+                                        <span>Domestic Equity:</span>
+                                        <span id="docDomesticTarget">55%</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span>International Equity:</span>
+                                        <span id="docInternationalTarget">25%</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span>Fixed Income:</span>
+                                        <span id="docFixedTarget">15%</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span>Cash:</span>
+                                        <span id="docCashTarget">3%</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <span>Alternatives:</span>
+                                        <span id="docAlternativesTarget">2%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>IV. REBALANCING GUIDELINES</h2>
+                                <p>The portfolio will be rebalanced <strong id="docRebalancingFreq">quarterly</strong> or when any asset class deviates from its target allocation by more than <strong id="docRebalancingThreshold">5%</strong>. Rebalancing will prioritize tax efficiency and will be executed first within tax-advantaged accounts when possible.</p>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>V. INVESTMENT RESTRICTIONS</h2>
+                                <p>The following investment restrictions apply:</p>
+                                <ul>
+                                    <li>No individual security position shall exceed <strong id="docConcentrationLimit">8%</strong> of the total portfolio</li>
+                                    <li>Excluded sectors: <strong id="docExcludedSectors">Tobacco, Firearms</strong></li>
+                                    <li>ESG preferences will be considered in investment selection</li>
+                                    <li>Derivatives usage is not permitted</li>
+                                    <li>Minimum credit rating for fixed income: A-</li>
+                                </ul>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>VI. PERFORMANCE MONITORING</h2>
+                                <p>Portfolio performance will be reviewed <strong id="docReviewFreq">quarterly</strong> against the benchmark: <strong>60% S&P 500 / 40% Bloomberg Aggregate Bond Index</strong>. Performance will be evaluated over rolling 3-year periods with tolerance for short-term variance within ±3% of benchmark returns.</p>
+                            </div>
+
+                            <div class="document-section">
+                                <h2>VII. FIDUCIARY ACKNOWLEDGMENT</h2>
+                                <p>Summit Wealth Advisors acknowledges its fiduciary responsibility to act in the best interests of the client. This Investment Policy Statement will be reviewed and updated as needed based on changes in client circumstances, market conditions, or investment objectives.</p>
+                            </div>
+
+                            <div class="document-footer">
+                                <div class="signature-section">
+                                    <div class="signature-line">
+                                        <div class="signature-label">Client Signature</div>
+                                        <div class="signature-date">Date: ___________</div>
+                                    </div>
+                                    <div class="signature-line">
+                                        <div class="signature-label">Advisor Signature</div>
+                                        <div class="signature-date">Date: ___________</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
